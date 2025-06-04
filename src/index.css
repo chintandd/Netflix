@@ -1,0 +1,171 @@
+@import "tailwindcss";
+
+:root {
+  letter-spacing: 1px;
+}
+
+.form-group {
+  @apply h-auto rounded-md flex flex-col;
+  background: rgba(255, 255, 255, 0.05);
+  border-color: #606060;
+}
+
+.form-group input:focus + label,
+.form-group input:not(:placeholder-shown) + label {
+  top: 3px;
+  font-size: small;
+  left: -5px;
+}
+
+@media (max-width:768px) {
+.form-group input:focus + label,
+.form-group input:not(:placeholder-shown) + label {
+  font-size: 0.7rem;
+  top:4px;
+}
+}
+
+@font-face {
+  font-family: "my-font-Lt";
+  src: url("/fonts/Montserrat-Light.ttf");
+}
+
+@font-face {
+  font-family: "my-font-Rg";
+  src: url("/fonts/Montserrat-Regular.ttf");
+}
+
+@font-face {
+  font-family: "my-font-Md";
+  src: url("/fonts/Montserrat-Medium.ttf");
+}
+
+@font-face {
+  font-family: "my-font-Bd";
+  src: url("/fonts/Montserrat-Bold.ttf");
+}
+
+@font-face {
+  font-family: "my-font-Ebd";
+  src: url("/fonts/Montserrat-ExtraBold.ttf");
+}
+
+@font-face {
+  font-family: "my-font-Bl";
+  src: url("/fonts/Montserrat-Black.ttf");
+}
+
+.glow {
+  -webkit-box-shadow: 0px 0px 279px 32px rgba(1, 1, 147, 0.72);
+  -moz-box-shadow: 0px 0px 279px 32px rgba(1, 1, 147, 0.72);
+  box-shadow: 0px 0px 279px 32px rgba(1, 1, 147, 0.72);
+}
+
+.stroke {
+  -webkit-text-stroke: 3px rgba(255, 255, 255, 0.684);
+}
+
+.box {
+  flex-shrink: 0;
+}
+
+.scroll-hidden {
+  overflow: auto; /* or scroll */
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE 10+ */
+}
+
+.scroll-hidden::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Edge */
+}
+
+.card-gradient {
+  background-image: linear-gradient(
+    to right bottom,
+    #1a2144,
+    #241b38,
+    #26152c,
+    #251121,
+    #210e18
+  );
+}
+
+.loader-btn {
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* Loading Screen     */
+
+/* HTML: <div class="loader"></div> */
+/* HTML: <div class="loader"></div> */
+/* HTML: <div class="loader"></div> */
+/* HTML: <div class="loader"></div> */
+.loader {
+  width: fit-content;
+  font-size: 2rem;
+  scale: 0.8;
+  line-height: 1.5;
+  font-family: system-ui, sans-serif;
+  font-weight: bold;
+  text-transform: uppercase;
+  color: #0000;
+  background:
+    radial-gradient(1.13em at 50% 1.6em, #d9232e 99%, #fff 101%)
+      calc(50% - 1.6em) 0/3.2em 100% text,
+    radial-gradient(1.13em at 50% -0.8em, #fff 99%, #d9232e 101%) 50%
+      0.8em/3.2em 100% repeat-x text;
+  animation: l9 2s linear infinite;
+}
+.loader:before {
+  content: "Loading";
+}
+@keyframes l9 {
+  to {
+    background-position:
+      calc(50% + 1.6em) 0,
+      calc(50% + 3.2em) 0.8em;
+  }
+}
+/* Override Swiper's default styles */
+/* Adjust the swiper container overflow */
+.swiper-container {
+  height: 100% !important;
+  width: 100% !important;
+  overflow: visible !important; /* Allow the hover effect to overflow */
+}
+
+.swiper-slide {
+  flex-shrink: 1 !important;
+}
+
+
+/* HTML: <div class="loader"></div> */
+.loader2 {
+  width: 50px;
+  padding: 8px;
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: #D9232E;
+  --_m: 
+    conic-gradient(#0000 10%,#000),
+    linear-gradient(#000 0 0) content-box;
+  -webkit-mask: var(--_m);
+          mask: var(--_m);
+  -webkit-mask-composite: source-out;
+          mask-composite: subtract;
+  animation: l3 1s infinite linear;
+}
+@keyframes l3 {to{transform: rotate(1turn)}}
