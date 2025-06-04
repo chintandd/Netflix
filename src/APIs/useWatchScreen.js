@@ -26,6 +26,8 @@ const useWatchScreen = (movieId) => {
     const poster = json.backdrop_path;
     const popularity = json.popularity;
     const release_date = json.release_date;
+    const lang = json.original_language
+    
     dispatch(
       addWatchScreenMovie({
         youtubeKey: youtubeKey,
@@ -37,7 +39,8 @@ const useWatchScreen = (movieId) => {
         popularity: popularity,
         release_date: release_date,
         logo: logoImage,
-        year:release_date.slice(0,4)
+        year:release_date.slice(0,4),
+        lang:lang
       }),
     );
   }

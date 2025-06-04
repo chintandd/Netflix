@@ -9,6 +9,9 @@ const useRelatedMovies = () => {
   const genresString = useSelector(
     (store) => store.movie.watchScreenMovie?.genres || [],
   );
+  const lang = useSelector(
+    (store) => store.movie.watchScreenMovie?.lang || "",
+  );
 
 
   useEffect(() => {
@@ -29,7 +32,7 @@ const useRelatedMovies = () => {
     
     
     const data = await fetch(
-      `https://api.themoviedb.org/3/discover/movie?page=1&with_genres=${genresID.join("%2C")}`,
+      `https://api.themoviedb.org/3/discover/movie?page=1&with_genres=${genresID.join("%2C")}&with_original_language=${lang}`,
       OPTIONS,
     );
     const json = await data.json();
