@@ -168,17 +168,16 @@ async function deleteProfile(){
 
   return (
     <div className='h-screen max-w-screen flex justify-center items-center bg-black text-white font-[my-font-Rg]'>
-      <Toaster
-        position="top-center"
-        reverseOrder={false}
-        toastOptions={{
-          style: {
-            fontSize: '1.1rem',    
-            padding: '16px 20px',  
-            minWidth: '300px',    
-          },
-        }}
-      />
+       <Toaster
+              position="top-center"
+              reverseOrder={false}
+              toastOptions={{
+                 className:'text-sm md:text-lg p-4 font-[my-font-Rg]',
+                 style:{
+                  padding:'1rem'
+                 }
+              }}
+        />
               <div className=" h-screen xl:w-[40vw] lg:w-[55vw] md:w-[70vw] w-[92vw] flex justify-center items-center relative">
               <div className="absolute top-10 left-2 cursor-pointer  active:text-[#D9232E] ">
                 <Link to={"/home"} ><MoveLeft className="h-8 w-8 hover:scale-110  hover:text-[#D9232E] md:ease-in md:duration-100"/></Link>

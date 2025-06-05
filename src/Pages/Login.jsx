@@ -89,12 +89,10 @@ const Login = () => {
         position="top-center"
         reverseOrder={false}
         toastOptions={{
-          style: {
-            fontSize: '1.1rem',    
-            padding: '16px 20px',  
-            minWidth: '300px',    
-
-          },
+           className:'text-sm md:text-lg p-4 font-[my-font-Rg]',
+           style:{
+            padding:'1rem'
+           }
         }}
       />
         <div className="header absolute top-0 w-full h-16 px-3 md:h-20 lg:h-25 lg:px-[5vw] py-2">
