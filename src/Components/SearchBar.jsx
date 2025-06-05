@@ -67,7 +67,7 @@ const SearchBar = memo(({ searchExpand, setSearchExpand, searchBox, setSearchBox
 
 
   return (
-    <div className="search-bar h-[80%] md:h-full relative w-full flex items-center gap-1 md:gap-2 justify-between text-sm md:text-sm lg:text-lg">
+    <div className="search-bar h-full relative w-full flex items-center gap-1 md:gap-2 justify-between text-sm md:text-sm lg:text-lg">
       <input
         className={`h-full rounded-l-full rounded-r-full border-r-1 ${
           searchExpand
@@ -81,7 +81,7 @@ const SearchBar = memo(({ searchExpand, setSearchExpand, searchBox, setSearchBox
         onChange={(e)=>setInputValue(e.target.value)}
       />
       <div onClick={() => setSearchExpand(!searchExpand)} className="cursor-pointer h-full flex items-center">
-        <Search className="aspect-square h-[90%]" />
+        <Search className="aspect-square [90%]" />
       </div>
 
      {searchList &&  <div
