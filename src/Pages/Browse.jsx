@@ -120,8 +120,9 @@ const VisiterPage = () => {
                       <div className="h-full rounded-xl ">
                         <img
                           className="rounded-xl h-full w-full object-cover"
-                          src={`https://image.tmdb.org/t/p/original${movie.longPoster}`}
+                          src={`https://image.tmdb.org/t/p/w342${movie.longPoster}`}
                           alt={`Movie ${index + 1}`}
+                          loading="lazy"
                         />
                       </div>
                       <div
