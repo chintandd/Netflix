@@ -9,9 +9,10 @@ import useUserAccount from "../APIs/useUserAccount";
 import { useEffect, useState } from "react";
 import { updateProfile,updatePassword,deleteUser,reauthenticateWithCredential,EmailAuthProvider} from "firebase/auth";
 import { auth } from "../Firebase";
-import { ToastContainer,toast, Slide } from "react-toastify";
+// import { ToastContainer,toast, Slide } from "react-toastify";
 import { useNavigate } from "react-router-dom";
 import { ArrowLeftFromLine } from 'lucide-react';
+import toast,{ Toaster } from "react-hot-toast";
 
 const UserAccount = () => {
    const [name,setName] = useState("") 
@@ -46,7 +47,14 @@ const UserAccount = () => {
   if(file){
     const ImageUrl = URL.createObjectURL(file)
     setImageUploading(true)
-    uploadImageCloundary(file)
+   toast.promise(
+  uploadImageCloundary(file),
+   {
+     loading: 'Uploading...',
+     success: <b>Image Uploaded !</b>,
+     error: <b>Upload failed !</b>,
+   }
+ );
   }
  }
 
@@ -59,7 +67,7 @@ const UserAccount = () => {
 
 // upload image to cloundary and get url
 
-async function uploadImageCloundary(file ){
+async function uploadImageCloundary(file){
     const formData = new FormData();
     formData.append("file", file);
     formData.append("upload_preset", "profile_preset"); 
@@ -96,17 +104,7 @@ async function updateProfileFirebase(){
   updateProfile(auth.currentUser, {
     displayName: name, photoURL: image
   }).then(() => {
-    toast.success("Account Updated", {
-            position: "top-right",
-            autoClose: 2000,
-            hideProgressBar: false,
-            closeOnClick: false,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "dark",
-            transition: Slide,
-          });
+        toast.success('Account Updated !')
         setTimeout(()=>{
           navigate("/home")
         },1500)
@@ -146,34 +144,16 @@ async function deleteProfile(){
 
     reauthenticateWithCredential(auth.currentUser, credential).then(()=>{
        deleteUser(auth.currentUser).then(()=>{
-      toast.error("Account Deleted", {
-            position: "top-right",
-            autoClose: 2000,
-            hideProgressBar: false,
-            closeOnClick: false,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "dark",
-            transition: Slide,
-          });
+              toast.error('Account Deleted !')
+
 
            setTimeout(()=>{
           navigate("/")
         },1000)
    })
     }).catch(()=>{
-         toast.error("Password Not Match", {
-            position: "top-right",
-            autoClose: 2000,
-            hideProgressBar: false,
-            closeOnClick: false,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "dark",
-            transition: Slide,
-          });
+        toast.error('Password not match !')
+
     })
    
 
@@ -188,19 +168,17 @@ async function deleteProfile(){
 
   return (
     <div className='h-screen max-w-screen flex justify-center items-center bg-black text-white font-[my-font-Rg]'>
-      <ToastContainer
-                position="top-right"
-                autoClose={2500}
-                hideProgressBar={false}
-                newestOnTop={false}
-                closeOnClick
-                rtl={false}
-                pauseOnFocusLoss
-                draggable
-                pauseOnHover
-                theme="dark"
-                transition={Slide}
-              />
+      <Toaster
+        position="top-center"
+        reverseOrder={false}
+        toastOptions={{
+          style: {
+            fontSize: '1.1rem',    
+            padding: '16px 20px',  
+            minWidth: '300px',    
+          },
+        }}
+      />
               <div className=" h-screen xl:w-[40vw] lg:w-[55vw] md:w-[70vw] w-[92vw] flex justify-center items-center relative">
               <div className="absolute top-10 left-2 cursor-pointer  active:text-[#D9232E] ">
                 <Link to={"/home"} ><MoveLeft className="h-8 w-8 hover:scale-110  hover:text-[#D9232E] md:ease-in md:duration-100"/></Link>

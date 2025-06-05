@@ -6,8 +6,9 @@ import {
 } from "firebase/auth";
 
 import { setUser } from "../../Redux/authSlice";
-import { toast, Slide } from "react-toastify";
+// import { toast, Slide } from "react-toastify";
 import profile from "/assets/profile.jpg"
+import toast from "react-hot-toast";
 
 export default function HandleLoginProcess(
   isSignForm,
@@ -27,17 +28,8 @@ export default function HandleLoginProcess(
       })
       .catch((error) => {
         setLoading(false);
-        toast.error("Wrong Email or Password !", {
-          position: "top-right",
-          autoClose: 2500,
-          hideProgressBar: false,
-          closeOnClick: false,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "dark",
-          transition: Slide,
-        });
+        toast.error('Wrong Email or Password !')
+
       });
   } else {
     createUserWithEmailAndPassword(auth, email, password)
@@ -64,17 +56,7 @@ export default function HandleLoginProcess(
       })
       .catch((error) => {
         setLoading(false);
-        toast.error("Email already exists !", {
-          position: "top-right",
-          autoClose: 2500,
-          hideProgressBar: false,
-          closeOnClick: false,
-          pauseOnHover: true,
-          draggable: true,
-          progress: undefined,
-          theme: "dark",
-          transition: Slide,
-        });
+        toast.error('Email already exists!')
       });
   }
 }

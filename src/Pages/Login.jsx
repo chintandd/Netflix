@@ -4,12 +4,12 @@ import { CircleX, EyeOff } from "lucide-react";
 import HandleError from "../utils/HandleError";
 import { useNavigate, useSearchParams } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { ToastContainer, Slide, toast } from "react-toastify";
 import HandleLoginProcess from "../utils/HandleSign_Signup";
 import LoaderScreen from "../utils/LoaderScreen";
 import { Eye } from 'lucide-react';
 import { auth } from "../Firebase";
 import { sendPasswordResetEmail } from "firebase/auth";
+import toast,{ Toaster } from "react-hot-toast";
 
 const Login = () => {
   const [searchParams] = useSearchParams();
@@ -68,18 +68,8 @@ const Login = () => {
       const email = prompt("Enter Email")
        sendPasswordResetEmail(auth, email)
     .then(() => {
-     toast.success("Email sent !", {
-             position: "top-right",
-             autoClose: 2500,
-             hideProgressBar: false,
-             closeOnClick: false,
-             pauseOnHover: true,
-             draggable: true,
-             progress: undefined,
-             theme: "dark",
-             transition: Slide,
-           });
-    
+        toast.success('Email sent !')
+  
     })
     .catch(() => {
      
@@ -95,19 +85,18 @@ const Login = () => {
   return (
     <>
       <div className='min-h-[90vh] max-w-screen bg-black sm:bg-[linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url("/assets/background.jpg")] bg-cover bg-center  bg-gradient-to-b from-black flex flex-col items-center justify-center text-white font-[my-font-rg]'>
-        <ToastContainer
-          position="top-right"
-          autoClose={2500}
-          hideProgressBar={false}
-          newestOnTop={false}
-          closeOnClick
-          rtl={false}
-          pauseOnFocusLoss
-          draggable
-          pauseOnHover
-          theme="dark"
-          transition={Slide}
-        />
+       <Toaster
+        position="top-center"
+        reverseOrder={false}
+        toastOptions={{
+          style: {
+            fontSize: '1.1rem',    
+            padding: '16px 20px',  
+            minWidth: '300px',    
+
+          },
+        }}
+      />
         <div className="header absolute top-0 w-full h-16 px-3 md:h-20 lg:h-25 lg:px-[5vw] py-2">
           <img className="h-full" src={Netflix_Logo} alt="netflix-logo" />
         </div>
