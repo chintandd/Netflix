@@ -46,7 +46,7 @@ const useRelatedMovies = () => {
       const poster = movie.backdrop_path;
       const popularity = movie.popularity;
 
-      arr.push({
+      poster && arr.push({
         movieId: movieId,
         title: title,
         genres: genres,
