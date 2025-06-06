@@ -12,16 +12,16 @@ const useHeroMovie = (heroMovieId) => {
 
   async function getMovie(heroMovieId) {
     const youtubeID = await fetch(
-      `https://api.themoviedb.org/3/movie/${heroMovieId}/videos`,
+      `https://tmdb-backend-1-dknt.onrender.com/api/tmdb/movie/${heroMovieId}/videos`,
       OPTIONS,
     );
     const details = await fetch(
-      `https://api.themoviedb.org/3/movie/${heroMovieId}`,
+      `https://tmdb-backend-1-dknt.onrender.com/api/tmdb/movie/${heroMovieId}`,
       OPTIONS,
     );
 
     const director = await fetch(
-      `https://api.themoviedb.org/3/movie/${heroMovieId}/credits`,
+      `https://tmdb-backend-1-dknt.onrender.com/api/tmdb/movie/${heroMovieId}/credits`,
       OPTIONS,
     );
 

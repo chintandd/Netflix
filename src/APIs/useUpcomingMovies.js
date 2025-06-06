@@ -16,7 +16,7 @@ const useUpcomingMovies = () => {
 
   async function upcomingMoviesFetch() {
     const data = await fetch(
-      "https://api.themoviedb.org/3/movie/upcoming?page=1",
+      "https://tmdb-backend-1-dknt.onrender.com/api/tmdb/movie/upcoming?page=1",
       OPTIONS,
     );
     const json = await data.json();
@@ -26,7 +26,7 @@ const useUpcomingMovies = () => {
     await Promise.all(
       json.results.map(async (movie) => {
         const images = await fetch(
-          `https://api.themoviedb.org/3/movie/${movie.id}/images`,
+          `https://tmdb-backend-1-dknt.onrender.com/api/tmdb/movie/${movie.id}/images`,
           OPTIONS,
         );
         const json2 = await images.json();

@@ -32,7 +32,7 @@ const useRelatedMovies = () => {
     
     
     const data = await fetch(
-      `https://api.themoviedb.org/3/discover/movie?page=1&with_genres=${genresID.join("%2C")}&with_original_language=${lang}`,
+      `https://tmdb-backend-1-dknt.onrender.com/api/tmdb/discover/movie?page=1&with_genres=${genresID.join("%2C")}&with_original_language=${lang}`,
       OPTIONS,
     );
     const json = await data.json();

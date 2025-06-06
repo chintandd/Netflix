@@ -15,7 +15,7 @@ const useTrendingMovies = () => {
 
   async function trendingMoviesFetch() {
     const data = await fetch(
-      "https://api.themoviedb.org/3/trending/movie/day",
+      "https://tmdb-backend-1-dknt.onrender.com/api/tmdb/trending/movie/day",
       OPTIONS,
     );
     const json = await data.json();
@@ -25,7 +25,7 @@ const useTrendingMovies = () => {
     await Promise.all(
       json.results.map(async (movie) => {
         const images = await fetch(
-          `https://api.themoviedb.org/3/movie/${movie.id}/images`,
+          `https://tmdb-backend-1-dknt.onrender.com/api/tmdb/movie/${movie.id}/images`,
           OPTIONS,
         );
         const json2 = await images.json();

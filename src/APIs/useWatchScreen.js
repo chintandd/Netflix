@@ -14,7 +14,7 @@ const useWatchScreen = (movieId) => {
     console.log("watch called");
     
     const data = await fetch(
-      `https://api.themoviedb.org/3/movie/${movieId}`,
+      `https://tmdb-backend-1-dknt.onrender.com/api/tmdb/movie/${movieId}`,
       OPTIONS,
     );
     const json = await data.json();
@@ -47,7 +47,7 @@ const useWatchScreen = (movieId) => {
 
   async function youtubeId(movieId) {
     const youtubeID = await fetch(
-      `https://api.themoviedb.org/3/movie/${movieId}/videos`,
+      `https://tmdb-backend-1-dknt.onrender.com/api/tmdb/movie/${movieId}/videos`,
       OPTIONS,
     );
 
@@ -61,7 +61,7 @@ const useWatchScreen = (movieId) => {
 
   async function logo(movieId) {
     const images = await fetch(
-      `https://api.themoviedb.org/3/movie/${movieId}/images`,
+      `https://tmdb-backend-1-dknt.onrender.com/api/tmdb/movie/${movieId}/images`,
       OPTIONS,
     );
     const json3 = await images.json();

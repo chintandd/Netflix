@@ -32,7 +32,7 @@ const useAllMovies = (pageNo) => {
 
     async function fetchAllMovies(page,final,signal){
        try {
-              const data =  await fetch(`https://api.themoviedb.org/3/discover/movie?page=${page}&${final}`,{...OPTIONS,signal})
+              const data =  await fetch(`https://tmdb-backend-1-dknt.onrender.com/api/tmdb/discover/movie?page=${page}&${final}`,{...OPTIONS,signal})
             const json =  await data.json();
             console.log(json);
             

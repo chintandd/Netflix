@@ -15,7 +15,7 @@ const usePopularMovies = () => {
 
   async function popularMoviesFetch() {
     const data = await fetch(
-      "https://api.themoviedb.org/3/movie/popular?page=1",
+      "https://tmdb-backend-1-dknt.onrender.com/api/tmdb/movie/popular?page=1",
       OPTIONS,
     );
     const json = await data.json();
@@ -26,7 +26,7 @@ const usePopularMovies = () => {
     await Promise.all(
       json.results.map(async (movie) => {
         const images = await fetch(
-          `https://api.themoviedb.org/3/movie/${movie.id}/images`,
+          `https://tmdb-backend-1-dknt.onrender.com/api/tmdb/movie/${movie.id}/images`,
           OPTIONS,
         );
         const json2 = await images.json();
