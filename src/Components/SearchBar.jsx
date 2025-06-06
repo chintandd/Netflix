@@ -46,7 +46,7 @@ const SearchBar = memo(({ searchExpand, setSearchExpand, searchBox, setSearchBox
         }else{
           console.log("called");
           
-            const data =  await fetch(`https://api.themoviedb.org/3/search/movie?query=${query}&page=1`,OPTIONS)
+            const data =  await fetch(`https://tmdb-backend-1-dknt.onrender.com/api/tmdb/search/movie?query=${query}&page=1`,OPTIONS)
             const json = await data.json()
             console.log(json);
             if(json.results.length == 0){
