@@ -23,7 +23,7 @@ const Watch = () => {
   useEffect(() => {
     return () => {
       dispatch(clearWatchScreenMovie());
-    };
+    }
   }, [movieId]);
 
   useEffect(() => {

@@ -35,8 +35,8 @@ const Header = () => {
 // When humbuger menu opens no scroll
 
   function handleMenu(){
-    let body = document.querySelector('body')
-     body.classList.add('h-screen','max-h-screen','overflow-hidden')  
+    // let body = document.querySelector('body')
+    //  body.classList.add('h-screen','max-h-screen','overflow-hidden')  
     setMenuExpand(prev=>!prev)
 
   }

@@ -5,10 +5,27 @@ import { Link } from 'react-router-dom';
 const HumBurgurMenu = ({expand,setMenuExpand}) => {
 
   function handleClick(){
-    let body = document.querySelector('body')
-     body.classList.remove('h-screen','max-h-screen','overflow-hidden')  
+    // let body = document.querySelector('body')
+    //  body.classList.remove('h-screen','max-h-screen','overflow-hidden')  
     setMenuExpand(prev=>!prev)
   }
+
+  useEffect(()=>{
+
+     let body = document.querySelector('body')
+      if(expand){
+         body.classList.add('h-screen','max-h-screen','overflow-hidden') 
+      }
+      else{
+         body.classList.remove('h-screen','max-h-screen','overflow-hidden') 
+
+      }
+
+
+     return ()=>{
+         body.classList.remove('h-screen','max-h-screen','overflow-hidden') 
+     }
+  },[expand])
 
   const [comingSoon,setComingSoon] = useState(false)
   return (
